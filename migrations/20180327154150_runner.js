@@ -1,6 +1,7 @@
 exports.up = (knex, Promise) =>
-    knex.schema.createTable('runnertracking', (table) => {
-        table.increments('bibNumber').primary();
+    knex.schema.createTable('runners', (table) => {
+        table.increments('id').primary();
+        table.string('bibNumber');
         table.string('name');
         table.string('shirtSize'),
         table.string('locationStaying'),
@@ -50,4 +51,4 @@ exports.up = (knex, Promise) =>
     });
 
 exports.down = (knex, Promise) =>
-    knex.schema.dropTableIfExists('runnertracking');
+    knex.schema.dropTableIfExists('runners');

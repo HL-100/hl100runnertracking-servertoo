@@ -1,8 +1,9 @@
 exports.seed = function (knex, Promise) {
-  return knex.raw('TRUNCATE TABLE runnertracking RESTART IDENTITY CASCADE')
+  return knex.raw('TRUNCATE TABLE runners RESTART IDENTITY CASCADE')
     .then(() =>
-      knex('runnertracking').insert([
+      knex('runners').insert([
         {
+          id: 0,
           bibNumber: 1,
           name: 'Caleb Efta',
           shirtSize: 'Men/s Large',
