@@ -1,7 +1,13 @@
 exports.up = (knex, Promise) =>
   knex.schema.createTable('runnertracking', (table) => {
-    table.increments('id').primary();
-    table.string('name');
+    table.increments('bibNumber').primary();
+    table.string('firstName');
+    table.string('lastName');
+    table.string('shirtSize');
+    table.string('locationStaying');
+    table.string('shoeBath');
+    table.string('medicalCondition');
+    table.string('medication');
     table.boolean('Started');
     table.time('RasberryOneIn');
     table.time('RasberryOneOut');
@@ -15,19 +21,33 @@ exports.up = (knex, Promise) =>
     table.time('StElmoTwoIn');
     table.time('HancockIn');
     table.time('HancockOut');
+    table.time('HancockPacerIn');
+    table.time('HancockPacerOut');
     table.time('LostWonderIn');
     table.time('LostWonderOut');
+    table.time('LostWonderPacerIn');
+    table.time('LostWonderPacerOut');
     table.time('PurgatoryIn');
     table.time('PurgatoryOut');
+    table.time('PurgatoryPacerIn');
+    table.time('PurgatoryPacerOut');
     table.time('MonarchIn');
     table.time('MonarchOut');
+    table.time('MonarchPacerIn');
+    table.time('MonarchPacerOut');
     table.time('FoosesIn');
     table.time('FoosesOut');
+    table.time('FoosesPacerIn');
+    table.time('FoosesPacerOut');
     table.time('BlanksIn');
     table.time('BlanksOut');
+    table.time('BlanksPacerIn');
+    table.time('BlanksPacerOut');
     table.time('RasberryTwoIn');
     table.time('RasberryTwoOut');
-    table.time('Finish');
+    table.time('RasberryTwoPacerIn');
+    table.time('RasberryTwoPacerOut');
+    table.string('Finish');
   });
 
 exports.down = (knex, Promise) =>

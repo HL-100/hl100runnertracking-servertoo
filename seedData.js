@@ -50,7 +50,7 @@ exports.seed = function (knex, Promise) {
     RasberryTwoOut: '00:00:00',
     RasberryTwoPacerIn: false,
     RasberryTwoPacerOut: false,
-    Finish: '00:00:00',
+    Finish: 'DNS',
   },
 
       ]))
