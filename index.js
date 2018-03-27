@@ -34,7 +34,7 @@ app.delete("/runners/:id", (request, response) => {
     }).catch(console.error);
 });
 
-app.patch("/runners/:id", (request, response) => {
+app.put("/runners/:id", (request, response) => {
     queries.update(request.params.id, request.body).then(runners => {
         response.json({ runners: runners[0] });
     }).catch(console.error);
