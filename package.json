@@ -1,0 +1,23 @@
+{
+  "name": "hl100runnertracking-server",
+  "version": "1.0.0",
+  "description": "hl100 runner tracking server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HL-100/hl100runnertracking-server.git"
+  },
+  "author": "Tin Cup Software",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HL-100/hl100runnertracking-server/issues"
+  },
+  "homepage": "https://github.com/HL-100/hl100runnertracking-server#readme",
+  "dependencies": {
+    "knex": "^0.14.4",
+    "pg": "^7.4.1"
+  }
+}
