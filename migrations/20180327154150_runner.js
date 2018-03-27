@@ -1,7 +1,12 @@
 exports.up = (knex, Promise) =>
     knex.schema.createTable('runnertracking', (table) => {
-        table.increments('id').primary();
+        table.increments('bibNumber').primary();
         table.string('name');
+        table.string('shirtSize'),
+        table.string('locationStaying'),
+        table.string('shoeBath'),
+        table.string('medicalCondition'),
+        table.string('medication'),
         table.boolean('Started');
         table.time('RasberryOneIn');
         table.time('RasberryOneOut');
@@ -27,6 +32,20 @@ exports.up = (knex, Promise) =>
         table.time('BlanksOut');
         table.time('RasberryTwoIn');
         table.time('RasberryTwoOut');
+        table.boolean('HancockPacerIn');
+        table.boolean('HancockPacerOut');
+        table.boolean('LostWonderPacerIn');
+        table.boolean('LostWonderPacerOut');
+        table.boolean('PurgatoryPacerIn');
+        table.boolean('PurgatoryPacerOut');
+        table.boolean('MonarchPacerIn');
+        table.boolean('MonarchPacerOut');
+        table.boolean('FoosesPacerIn');
+        table.boolean('FoosesPacerOut');
+        table.boolean('BlanksPacerIn');
+        table.boolean('BlanksPacerOut');
+        table.boolean('RasberryTwoPacerIn');
+        table.boolean('RasberryTwoPacerOut');
         table.time('Finish');
     });
 

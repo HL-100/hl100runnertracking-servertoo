@@ -1,11 +1,10 @@
 exports.seed = function (knex, Promise) {
-  return knex('runnertracking').del()
+  return knex.raw('TRUNCATE TABLE runnertracking RESTART IDENTITY CASCADE')
     .then(() =>
       knex('runnertracking').insert([
         {
           bibNumber: 1,
-          firstName: 'Caleb'
-    lastName: 'Efta',
+          name: 'Caleb Efta',
           shirtSize: 'Men/s Large',
           locationStaying: 'Camping at start/finish',
           shoeBath: 'Yes, at runner checkin',
@@ -53,6 +52,6 @@ exports.seed = function (knex, Promise) {
           Finish: '00:00:00',
         },
 
-      ]))
-    .then(() => knex.raw('ALTER SEQUENCE runnertracking_id_seq RESTART WITH 10;'));
+      ])
+    );
 };
