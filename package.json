@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "node ./bin/www",
     "dev": "nodemon"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/HL-100/hl100runnertracking-server#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
