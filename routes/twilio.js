@@ -5,9 +5,9 @@ const router = express.Router();
 
 function stringToBoolean(string) {
   let newBoolean;
-  if (string === "true") {
+  if (string === "yes") {
     return (newBoolean = true);
-  } else if (string === "false") {
+  } else if (string === "no") {
     return (newBoolean = false);
   } else {
     return (newBoolean = null);
