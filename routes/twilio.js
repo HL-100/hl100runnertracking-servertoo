@@ -5,15 +5,33 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const router = express.Router();
 
 function pacerParser(string) {
-  if (string === 'piy') {
-    return 'Yes';
-  } else if (string === 'poy') {
-    return 'Yes';
-  } else if (string === 'pin') {
-    return 'No';
-  } else if (string === 'pon') {
-    return 'No';
+  if (string === "piy") {
+    return "Yes";
+  } else if (string === "poy") {
+    return "Yes";
+  } else if (string === "pin") {
+    return "No";
+  } else if (string === "pon") {
+    return "No";
   }
+}
+
+function formatBody(string) {
+  const newMsg = string.replace(/,/g, "").split(" ");
+  if (newMsg[4] != undefined) {
+    const body = {
+      [`${newMsg[0]}In`]: newMsg[2],
+      [`${newMsg[0]}Out`]: newMsg[3],
+      [`${newMsg[0]}PacerIn`]: pacerParser(newMsg[4]),
+      [`${newMsg[0]}PacerOut`]: pacerParser(newMsg[5])
+    };
+    return body;
+  }
+  const body = {
+    [`${newMsg[0]}In`]: newMsg[2],
+    [`${newMsg[0]}Out`]: newMsg[3]
+  };
+  return body;
 }
 
 function formatBody(string) {
