@@ -1,6 +1,6 @@
-const express = require("express");
-const queries = require("../queries/runnerqueries");
-const MessagingResponse = require("twilio").twiml.MessagingResponse;
+const express = require('express');
+const queries = require('../queries/runnerqueries');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 const router = express.Router();
 
@@ -34,12 +34,31 @@ function formatBody(string) {
   return body;
 }
 
-router.post("/sms", (request, response) => {
+function formatBody(string) {
+  const newMsg = string.replace(/,/g, '').split(' ');
+  if (newMsg[4] != undefined) {
+    const body = {
+      [`${newMsg[0]}In`]: newMsg[2],
+      [`${newMsg[0]}Out`]: newMsg[3],
+      [`${newMsg[0]}PacerIn`]: pacerParser(newMsg[4]),
+      [`${newMsg[0]}PacerOut`]: pacerParser(newMsg[5]),
+    };
+    return body;
+  }
+  const body = {
+    [`${newMsg[0]}In`]: newMsg[2],
+    [`${newMsg[0]}Out`]: newMsg[3],
+  };
+  return body;
+}
+
+router.post('/sms', (request, response) => {
   const twiml = new MessagingResponse();
-  twiml.message("Message received!");
+  twiml.message('Message received!');
   const updateBody = formatBody(request.body.Body);
-  queries.update(id, updateBody).then(record => {
-    response.writeHead(200, { "Content-Type": "text/xml" });
+  const id = request.body.Body.replace(/,/g, '').split(' ')[1];
+  queries.update(id, updateBody).then((record) => {
+    response.writeHead(200, { 'Content-Type': 'text/xml' });
     response.end(twiml.toString());
   });
 });

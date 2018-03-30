@@ -50,4 +50,4 @@ exports.up = (knex, Promise) =>
     table.time("Finish");
   });
 
-exports.down = (knex, Promise) => knex.schema.dropTableIfExists("runners");
+exports.down = (knex, Promise) => knex.schema.dropTableIfExists('runners');
