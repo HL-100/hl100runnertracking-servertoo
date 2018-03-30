@@ -51,4 +51,3 @@ exports.up = (knex, Promise) =>
   });
 
 exports.down = (knex, Promise) => knex.schema.dropTableIfExists("runners");
-string;
